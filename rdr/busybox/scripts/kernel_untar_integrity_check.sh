@@ -1,8 +1,8 @@
-#!/bin/bash
-
+KERNEL_TAR_URL="https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.14.280.tar.gz"
+KERNEL_VERSION=`echo $KERNEL_TAR_URL | cut -d '/' -f8 | sed 's/.tar.gz$//'`
 MOUNT=/mnt/test/
 MASTER_CHECKSUM_FILE=$MOUNT"/kernel_hash"
-KERNEL_DIRECTORY="linux-master"
+KERNEL_DIRECTORY=$KERNEL_VERSION
 
 if [ -f $MASTER_CHECKSUM_FILE ]; then
     echo "Found master checksum file, proceeding with checksum validation"
